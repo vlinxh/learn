@@ -6,6 +6,7 @@ import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
 import com.alibaba.rocketmq.client.producer.SendResult;
 import com.alibaba.rocketmq.common.message.Message;
 import com.alibaba.rocketmq.remoting.exception.RemotingException;
+import com.xhlim.rocketmq.consumer.Consumer;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,7 +23,7 @@ public class Producer {
          * 因为服务器会回查这个Group下的任意一个Producer
          */
         DefaultMQProducer producer = new DefaultMQProducer("ProducerGroupName");
-        producer.setNamesrvAddr("10.211.55.3:9876");
+        producer.setNamesrvAddr(Consumer.addr);
         producer.setInstanceName("producer");
 
         /**

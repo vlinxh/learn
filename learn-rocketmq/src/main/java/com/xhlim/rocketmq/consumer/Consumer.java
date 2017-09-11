@@ -17,14 +17,18 @@ import java.util.List;
  */
 public class Consumer {
 
+    // final  String addr = "36.111.198.59:1883";
+    public final static String addr = "122.114.226.115:9876";
+
     public static void main(String[] args) throws MQClientException {
+
 
         /**
          * 一个应用创建一个Consumer，由应用来维护此对象，可以设置为全局对象或者单例<br>
          * 注意：ConsumerGroupName需要由应用来保证唯一
          */
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("ConsumerGroupName");
-        consumer.setNamesrvAddr("10.211.55.3:9876");
+        consumer.setNamesrvAddr(addr);
         consumer.setInstanceName("consumer");
 
         /**

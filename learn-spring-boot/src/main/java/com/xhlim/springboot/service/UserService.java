@@ -11,4 +11,11 @@ public interface UserService {
      * @return
      */
     User saveUser(User user);
+
+    /**
+     * 查询用户
+     * @param id
+     * @return
+     */
+    User findUser(String id);
 }

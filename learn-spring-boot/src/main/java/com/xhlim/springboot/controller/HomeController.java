@@ -37,4 +37,14 @@ public class HomeController {
         System.out.println(saveUser);
         return  null;
     }
+
+    @RequestMapping("/findUser")
+    @ResponseBody
+    public String findUser() {
+        User user = userService.findUser("6841769bdf50488f881c2d30eb829386");
+        System.out.println(user);
+        return  null;
+    }
+
+
 }

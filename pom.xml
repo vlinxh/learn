@@ -18,7 +18,7 @@
     <!-- 变量配置 -->
     <properties>
         <!-- 版本配置 -->
-        <jdk>1.7</jdk>
+        <jdk>1.8</jdk>
         <junit>4.12</junit>
         <spring>4.3.9.RELEASE</spring>
         <spring_data>1.13.6.RELEASE</spring_data>
@@ -127,6 +127,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
+                    <compilerArgument>-parameters</compilerArgument>
                     <encoding>${encoding}</encoding>
                     <source>${jdk}</source>
                     <target>${jdk}</target>

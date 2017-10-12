@@ -15,14 +15,14 @@ import java.util.Date;
 @Data
 public class User extends BaseEntity {
 
-    @Column(columnDefinition = "varchar(64) COMMENT '用户名'")
+    // @Column(columnDefinition = "varchar(64) COMMENT '用户名'")
     private String name;
 
-    @Column(columnDefinition = "varchar(64) COMMENT '用户密码'")
+    // @Column(columnDefinition = "varchar(64) COMMENT '用户密码'")
     private String password;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = timezone)
-    @Column(columnDefinition = "datetime COMMENT '最后登录时间'")
+    // @Column(columnDefinition = "datetime COMMENT '最后登录时间'")
     private Date lastLogin;
 
 

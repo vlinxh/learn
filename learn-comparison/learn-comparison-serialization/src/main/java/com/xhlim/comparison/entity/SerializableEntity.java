@@ -1,11 +1,9 @@
 package com.xhlim.comparison.entity;
 
-import com.oracle.javafx.jmx.json.JSONException;
 import lombok.Data;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.*;

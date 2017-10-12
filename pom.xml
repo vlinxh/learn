@@ -9,10 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>learn-comparison-serialization</module>
         <module>learn-rocketmq</module>
         <module>learn-tools</module>
         <module>learn-spring-boot</module>
+        <module>learn-comparison</module>
     </modules>
 
     <!-- 变量配置 -->
@@ -29,6 +29,7 @@
         <logback>1.2.3</logback>
         <redis>2.9.0</redis>
         <mysql>6.0.6</mysql>
+        <hibernate>1.0.0.Final</hibernate>
 
         <!-- 内存 -->
         <meminitial>512m</meminitial>
@@ -41,7 +42,7 @@
     <!-- jar 统一管理 -->
     <dependencyManagement>
         <dependencies>
-            <!--不实用spring boot的parent包-->
+            <!--不使用spring boot的parent包-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -114,6 +115,18 @@
                 <version>${mysql}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>${hibernate}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

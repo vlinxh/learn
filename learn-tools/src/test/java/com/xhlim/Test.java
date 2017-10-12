@@ -1,8 +1,8 @@
 package com.xhlim;
 
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  * @author xhlim@outlook.com
@@ -10,17 +10,25 @@ import java.util.concurrent.Executors;
  */
 public class Test {
 
-   static ExecutorService threadPool = Executors.newFixedThreadPool(3);
+
 
     public static void main(String[] args) {
-        // Map<String, String> map = toMap(String.class, String.class, "2", "3", "4", "5");
-        // System.out.println(map);
+        try {
+            int i = 1 / 0;
+        }catch (Exception e) {
+            e.printStackTrace();
+            // System.out.println(getTrace(e));
+
+        }
+
     }
 
-    // private static <K, V> Map<K, V> toMap(
-    //         Class<K> keyType, Class<V> valueType, Object... entries) {
-    //     if (entries.length % 2 == 1)
-    //         throw new IllegalArgumentException("Invalid entries");
-        // return IntStream.range(0, entries.length / 2).map(i -> i * 2).collect(HashMap::new, (m, i) -> m.put(keyType.cast(entries[i]), valueType.cast(entries[i + 1])), Map::putAll);
-    // }
+    public static String getTrace(Throwable t) {
+        StringWriter stringWriter= new StringWriter();
+        PrintWriter writer= new PrintWriter(stringWriter);
+        t.printStackTrace(writer);
+        StringBuffer buffer= stringWriter.getBuffer();
+        return buffer.toString();
+    }
 }
+

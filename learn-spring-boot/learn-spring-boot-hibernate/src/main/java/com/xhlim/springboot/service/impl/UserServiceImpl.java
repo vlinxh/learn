@@ -1,12 +1,11 @@
 package com.xhlim.springboot.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.xhlim.springboot.dao.UserDao;
 import com.xhlim.springboot.entity.User;
 import com.xhlim.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Map;
 
 /**
  * @author xhlim@outlook.com
@@ -25,10 +24,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUser(String id) {
-        // Map<String, Object> map = userDao.findMapBySQL(id);
-        // System.out.println(map);
-        String str = userDao.findMapBySQL(id);
-        System.out.println(str);
-        return userDao.findBySQL(id);
+        User userSql = userDao.findBySQL(id);
+        System.out.println(JSON.toJSONString(userSql));
+        return userDao.findOne(id);
     }
 }

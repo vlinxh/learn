@@ -13,11 +13,10 @@ import com.alibaba.rocketmq.common.message.MessageExt;
 import java.util.List;
 
 /**
- * Created by xhlim on 2017/8/9.
+ * @author xhlim 2017/8/9
  */
 public class Consumer {
 
-    // final  String addr = "36.111.198.59:1883";
     public final static String addr = "122.114.226.115:9876";
 
     public static void main(String[] args) throws MQClientException {

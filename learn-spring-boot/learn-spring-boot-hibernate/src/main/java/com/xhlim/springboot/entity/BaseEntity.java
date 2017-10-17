@@ -5,10 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
-import javax.xml.stream.events.Comment;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import java.sql.Time;
 import java.util.Date;
-import java.util.TimeZone;
 
 /**
  * @author xhlim@outlook.com
@@ -19,37 +23,61 @@ import java.util.TimeZone;
 @MappedSuperclass
 public class BaseEntity {
 
-    public static final String STATE_VALID = "1";   // 有效
-    public static final String STATE_INVALID = "0"; // 无效
+    /**
+     * 有效
+     */
+    public static final String STATE_VALID = "1";
 
-    protected static final String timezone = "GMT+08:00"; // 东八区
+    /**
+     * 无效
+     */
+    public static final String STATE_INVALID = "0";
+
+    /**
+     * 东八区
+     */
+    protected static final String TIME_ZONE = "GMT+08:00";
 
 
+    /**
+     * 序列号，自增长
+     */
     @GeneratedValue(strategy = GenerationType.AUTO)
-    // @Column(columnDefinition = "varchar(10) COMMENT '序列号'")
     private long seq;
 
+    /**
+     * 主键
+     */
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "com.xhlim.springboot.entity.id.UUIDGenerator")
-    // @Column(columnDefinition = "varchar(36) COMMENT '主键'")
     private String id;
 
-    // @Column(columnDefinition = "varchar(36) COMMENT '创建人'")
+    /**
+     * 创建人
+     */
     private String createUser;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = timezone)
-    // @Column(columnDefinition = "datetime COMMENT '创建时间'")
+    /**
+     * 创建时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = TIME_ZONE)
     private Date createDate;
 
-    // @Column(columnDefinition = "varchar(36) COMMENT '修改人'")
+    /**
+     * 修改人
+     */
     private String updateUser;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = timezone)
-    // @Column(columnDefinition = "datetime COMMENT '修改时间'")
+    /**
+     * 修改时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = TIME_ZONE)
     private Date updateDate;
 
-    // @Column(columnDefinition = "enum('1','0') COMMENT '1 有效，0 无效'")
+    /**
+     * 状态 1 有效，0 无效
+     */
     protected String state = STATE_VALID;
 
     @PrePersist

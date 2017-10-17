@@ -5,9 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * @author xhlim@outlook.com
  * @create 2017-09-10 20:23
@@ -15,10 +12,13 @@ import java.util.Map;
 @Repository
 public interface UserDao extends JpaRepository<User, String> {
 
-    @Query(value = "select * from user where id = ?", nativeQuery = true)
-    // @Query("select t from #{#entityName} t where t.taskName = ? and t.createTime = ?")
+    /**
+     * 根据id查询用户信息，自定义sql返回用户对象
+     *
+     * @param id
+     * @return
+     */
+    @Query(value = "select * from t_user where id = ?", nativeQuery = true)
     User findBySQL(String id);
 
-    @Query(value = "select new Map(id,name) from user where id = ?", nativeQuery = true)
-    String findMapBySQL(String id);
 }

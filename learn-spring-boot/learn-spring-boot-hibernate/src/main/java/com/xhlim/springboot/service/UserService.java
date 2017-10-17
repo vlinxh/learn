@@ -1,6 +1,8 @@
 package com.xhlim.springboot.service;
 
-import com.xhlim.springboot.entity.User; /**
+import com.xhlim.springboot.entity.User;
+
+/**
  * @author xhlim@outlook.com
  * @create 2017-09-10 20:21
  */

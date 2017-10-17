@@ -30,6 +30,8 @@
         <redis>2.9.0</redis>
         <mysql>6.0.6</mysql>
         <hibernate>1.0.0.Final</hibernate>
+        <fastjson>1.2.39</fastjson>
+        <commons>3.6</commons>
 
         <!-- 内存 -->
         <meminitial>512m</meminitial>
@@ -126,6 +128,18 @@
                 <groupId>org.hibernate.javax.persistence</groupId>
                 <artifactId>hibernate-jpa-2.1-api</artifactId>
                 <version>${hibernate}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons}</version>
             </dependency>
 
         </dependencies>

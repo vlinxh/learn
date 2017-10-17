@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+</head>
+<body ng-app="app">
+    <p>自定义：
+        <div runoob-directive></div>
+    </p>
+
+    <p><a href="pagination.html">分页</a></p>
+
+    <!-- import JS-->
+    <script type="application/javascript" src="/js/plugin/angular/1.6.6/angular.js"></script>
+
+    <script type="application/javascript">
+        var app = angular.module("app", []);
+        app.directive("runoobDirective", function () {
+            return {
+                template:"<h1>你好啊，自定义</h1>"
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页</title>
+    <link rel="stylesheet" href="/css/plugin/bootstrap/3.3.7/css/bootstrap.css">
+    <style>
+        .page-list .pagination {float:left;}
+        .page-list .pagination span {cursor: pointer;}
+        .page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+        .page-list .pagination .separate span:hover {background: none;}
+        .page-list .page-total {float:left; margin: 25px 20px;}
+        .page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+        .page-list .page-total input {width: 40px; padding-left:3px;}
+        .page-list .page-total select {width: 50px;}
+    </style>
+</head>
+<body ng-app="pagination" ng-controller="PaginationController as controller">
+
+<div tm-pagination conf="paginationConf"></div>
+
+<!-- import JS-->
+<script type="application/javascript" src="/js/plugin/angular/1.6.6/angular.js"></script>
+<script type="application/javascript" src="/js/common/pagination.js"></script>
+
+<script type="application/javascript">
+    angular.module('pagination', ['tm.pagination']).controller('PaginationController', function($scope, $timeout){
+        $scope.paginationConf = {
+            currentPage: 1,
+            totalItems: 8000,
+            itemsPerPage: 15,
+            pagesLength: 15,
+            perPageOptions: [10, 20, 30, 40, 50],
+            onChange: function(){
+
+            }
+        };
+    });
+</script>
+
+</body>
+</html>

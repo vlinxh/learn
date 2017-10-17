@@ -13,6 +13,7 @@
         <module>learn-tools</module>
         <module>learn-spring-boot</module>
         <module>learn-comparison</module>
+        <module>learn-js</module>
     </modules>
 
     <!-- 变量配置 -->

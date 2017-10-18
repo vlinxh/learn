@@ -15,7 +15,8 @@
         <module>learn-spring-boot-hibernate</module>
         <module>learn-spring-boot-single</module>
         <module>learn-spring-boot-mybatis</module>
-        <module>spring-boot-html</module>
+        <module>learn-spring-boot-html</module>
+        <module>learn-spring-boot-war</module>
     </modules>
 
     <dependencies>

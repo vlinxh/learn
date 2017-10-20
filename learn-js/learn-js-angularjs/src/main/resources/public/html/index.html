@@ -6,29 +6,14 @@
 </head>
 <body>
 AngularJs 学习
-<div ng-app="" ng-init="i=1;k=5;person={firstName:'张',lastName:'三'};points=[0,1,2,3,4]">
-    <p>我的第一个表达式: {{ 5 + 5 }}</p>
-    <p>总价：{{i * k}}</p>
-    <p>总价：<span ng-bind="i * k"></span></p>
-    <p>姓名：{{person.firstName + person.lastName}}</p>
-    <p>第三个值：{{points[2]}}</p>
-    <span>---------------------------------------</span>
-    <p>请输入姓名：<input type="text" ng-model="name">&nbsp;&nbsp;&nbsp;&nbsp;你输入的为： {{ name }}</p>
-    数量： <input type="number" ng-model="i">
-    价格： <input type="number" ng-model="k">
-    <b>总价：</b> {{ i * k }}
-    <p>
-        <ul>
-            <li ng-repeat="x in points">
-                {{x}}
-            </li>
-        </ul>
-    </p>
+<div>
+    <p><a href="expression/expression.html">表达式</a></p>
     <p><a href="directive/directive.html">自定义指令</a></p>
+    <p><a href="module/module.html">模型</a></p>
+    <p><a href="filter/filter.html">过滤器</a></p>
+    <p><a href="service/service.html">服务</a></p>
 </div>
 
 
-<!-- import JS-->
-<script type="application/javascript" src="/js/plugin/angular/angular.js"></script>
 </body>
 </html>

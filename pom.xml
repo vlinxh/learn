@@ -14,6 +14,7 @@
         <module>learn-spring-boot</module>
         <module>learn-comparison</module>
         <module>learn-js</module>
+        <module>learn-spring-cloud</module>
     </modules>
 
     <!-- 变量配置 -->

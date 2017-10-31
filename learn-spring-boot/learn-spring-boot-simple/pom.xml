@@ -9,6 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-spring-boot-single</artifactId>
+    <artifactId>learn-spring-boot-simple</artifactId>
 
 </project>

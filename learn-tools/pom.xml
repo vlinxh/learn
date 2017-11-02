@@ -15,20 +15,22 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
+            <version>${redis}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>${junit}</version>
         </dependency>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.3.0</version>
+            <version>${quartz}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
-            <version>3.0.0.RELEASE</version>
+            <version>${spring_data_elasticsearch}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>elasticsearch</artifactId>
@@ -41,12 +43,12 @@
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
-            <version>5.6.2</version>
+            <version>${elasticsearch}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>transport</artifactId>
-            <version>5.6.2</version>
+            <version>${elasticsearch}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>elasticsearch</artifactId>
@@ -58,10 +60,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>${hibernate}</version>
         </dependency>
     </dependencies>
 

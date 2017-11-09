@@ -4,10 +4,10 @@ import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 import com.esotericsoftware.kryo.serializers.JavaSerializer;
-import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
-import com.sun.org.apache.xml.internal.security.utils.Base64;
 import com.xhlim.comparison.entity.SerializableEntity;
 import org.objenesis.strategy.StdInstantiatorStrategy;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -46,8 +46,8 @@ public class KryoSerializable {
             e.printStackTrace();
         }
 
-
-        return com.sun.org.apache.xml.internal.security.utils.Base64.encode(b);
+        BASE64Encoder encoder = new BASE64Encoder();
+        return encoder.encode(b);
     }
 
     /**
@@ -58,17 +58,19 @@ public class KryoSerializable {
      * @param <T>
      * @return
      */
-    public static <T> T deserialize(String json, Class<T> clazz) throws Base64DecodingException {
+    public static <T> T deserialize(String json, Class<T> clazz) throws IOException {
         Kryo kryo = new Kryo();
         kryo.setReferences(false);
         kryo.register(clazz, new JavaSerializer());
 
-        ByteArrayInputStream bais = new ByteArrayInputStream(Base64.decode(json));
+        BASE64Decoder decoder = new BASE64Decoder();
+
+        ByteArrayInputStream bais = new ByteArrayInputStream(decoder.decodeBuffer(json));
         Input input = new Input(bais);
         return kryo.readObject(input, clazz);
     }
 
-    public static void main(String[] args) throws Base64DecodingException {
+    public static void main(String[] args) throws IOException {
         SerializableEntity entity = new SerializableEntity();
         entity.setB(new Byte("1"));
         String json = KryoSerializable.serialize(entity);

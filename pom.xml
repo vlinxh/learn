@@ -34,6 +34,9 @@
         <hibernate>1.0.0.Final</hibernate>
         <fastjson>1.2.39</fastjson>
         <commons>3.6</commons>
+        <quartz>2.3.0</quartz>
+        <spring_data_elasticsearch>3.0.1.RELEASE</spring_data_elasticsearch>
+        <elasticsearch>5.6.3</elasticsearch>
 
         <!-- 内存 -->
         <meminitial>512m</meminitial>
@@ -44,108 +47,108 @@
     </properties>
 
     <!-- jar 统一管理 -->
-    <dependencyManagement>
-        <dependencies>
-            <!--不使用spring boot的parent包-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring_boot}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+    <!--<dependencyManagement>-->
+        <!--<dependencies>-->
+            <!--&lt;!&ndash;不使用spring boot的parent包&ndash;&gt;-->
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-dependencies</artifactId>-->
+                <!--<version>${spring_boot}</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>junit</groupId>-->
+                <!--<artifactId>junit</artifactId>-->
+                <!--<version>${junit}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.projectlombok</groupId>-->
+                <!--<artifactId>lombok</artifactId>-->
+                <!--<version>${lombok}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.springframework</groupId>-->
+                <!--<artifactId>spring-context</artifactId>-->
+                <!--<version>${spring}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>com.esotericsoftware.kryo</groupId>
-                <artifactId>kryo</artifactId>
-                <version>${kryo}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>com.esotericsoftware.kryo</groupId>-->
+                <!--<artifactId>kryo</artifactId>-->
+                <!--<version>${kryo}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-jpa</artifactId>
-                <version>${spring_boot}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+                <!--<version>${spring_boot}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>com.alibaba.rocketmq</groupId>
-                <artifactId>rocketmq-client</artifactId>
-                <version>${rocketmq}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba.rocketmq</groupId>
-                <artifactId>rocketmq-all</artifactId>
-                <version>${rocketmq}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>com.alibaba.rocketmq</groupId>-->
+                <!--<artifactId>rocketmq-client</artifactId>-->
+                <!--<version>${rocketmq}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>com.alibaba.rocketmq</groupId>-->
+                <!--<artifactId>rocketmq-all</artifactId>-->
+                <!--<version>${rocketmq}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback}</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>${logback}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>ch.qos.logback</groupId>-->
+                <!--<artifactId>logback-classic</artifactId>-->
+                <!--<version>${logback}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>ch.qos.logback</groupId>-->
+                <!--<artifactId>logback-core</artifactId>-->
+                <!--<version>${logback}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>redis.clients</groupId>
-                <artifactId>jedis</artifactId>
-                <version>${redis}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>redis.clients</groupId>-->
+                <!--<artifactId>jedis</artifactId>-->
+                <!--<version>${redis}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>mysql</groupId>-->
+                <!--<artifactId>mysql-connector-java</artifactId>-->
+                <!--<version>${mysql}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok}</version>
-                <scope>provided</scope>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.projectlombok</groupId>-->
+                <!--<artifactId>lombok</artifactId>-->
+                <!--<version>${lombok}</version>-->
+                <!--<scope>provided</scope>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.1-api</artifactId>
-                <version>${hibernate}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.hibernate.javax.persistence</groupId>-->
+                <!--<artifactId>hibernate-jpa-2.1-api</artifactId>-->
+                <!--<version>${hibernate}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>com.alibaba</groupId>-->
+                <!--<artifactId>fastjson</artifactId>-->
+                <!--<version>${fastjson}</version>-->
+            <!--</dependency>-->
 
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.apache.commons</groupId>-->
+                <!--<artifactId>commons-lang3</artifactId>-->
+                <!--<version>${commons}</version>-->
+            <!--</dependency>-->
 
-        </dependencies>
-    </dependencyManagement>
+        <!--</dependencies>-->
+    <!--</dependencyManagement>-->
 
 
     <build>
